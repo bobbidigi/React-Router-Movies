@@ -8,8 +8,12 @@ const App = () => {
   const [savedList, setSavedList] = useState( [] );
 
   const addToSavedList = movie => {
-    if(savedList.includes(movie)) {alert("Movie already exists")}
-     else {setSavedList( [...savedList, movie] );}
+    const foundMovie = savedList.find(el => el.title === movie.title)
+    if(!foundMovie){
+      setSavedList( [...savedList, movie]);
+    }else{
+      alert('movie already exists');
+    }
   };
 
   return (
